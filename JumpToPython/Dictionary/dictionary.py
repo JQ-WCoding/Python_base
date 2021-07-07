@@ -27,3 +27,15 @@ print(list(a.items()))
 # 전부 삭제
 a.clear()
 print(a)
+
+# a[] 과 달리 get 함수는 값이 없으면 None 으로 돌려준다
+a = {'name': 'jun', 'hobby': 'watching movie', 'birth': 'blah'}
+print(a.get('name'))
+print(a.get('class'))
+
+# 값이 없지만 디폴트 값으로 반환받고 싶을때
+print(a.get('class', 'nothing'))
+
+print('name' in a)
+# in 에서 value 값은 알지 못한다 -> 추측 고유의 key 만 출력하도록 되어 있는 것 같다
+print('jun' in a)
