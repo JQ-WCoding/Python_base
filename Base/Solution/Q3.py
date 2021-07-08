@@ -49,3 +49,6 @@ for n in numbers:
         result.append(n * 2)
 
 print(result)
+
+result = [n * 2 for n in numbers]
+print(result)
