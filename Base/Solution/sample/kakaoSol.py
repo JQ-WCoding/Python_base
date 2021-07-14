@@ -11,7 +11,6 @@ def mySol(line1, line2):
     for i in range(len(line1)):
         p2 = '.{%d}' % i
         p3 = p2.join(line2)
-        print(p3)
         answer1 = re.findall(r'(?=%s)' % p3, line1)
         for j in answer1:
             conunt += 1

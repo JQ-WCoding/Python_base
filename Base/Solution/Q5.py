@@ -1,3 +1,6 @@
+import random
+import time
+
 # Q1 문자열 바꾸기
 a = 'a:b:c:d'
 
@@ -39,3 +42,45 @@ def mySol(n):
 # sample
 for i in range(10):
     print(mySol(i))
+
+result = []
+while len(result) < 6:
+    num = random.randint(1, 45)
+    if num not in result:
+        result.append(num)
+
+print(result)
+
+
+def compress_string(s):
+    _c = ""
+    cnt = 0
+    result1 = ""
+    for c in s:
+        if c != _c:
+            _c = c
+            if cnt:
+                result1 += str(cnt)
+                cnt = 1
+            else:
+                cnt += 1
+    if cnt:
+        result1 += str(cnt)
+    return result1
+
+
+print(compress_string("aaabbcccccca"))
+
+dic = {'.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D'}
+
+
+def morse(src):
+    result2 = []
+    for word in src.split(" "):
+        for char in word.split(" "):
+            result2.append(dic[char])
+        result2.append(" ")
+    return "".join(result2)
+
+
+print(morse('...... . ... .-.. . . '))
