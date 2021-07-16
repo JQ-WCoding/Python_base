@@ -1,4 +1,5 @@
 import random
+import re
 import time
 
 # Q1 문자열 바꾸기
@@ -84,3 +85,45 @@ def morse(src):
 
 
 print(morse('...... . ... .-.. . . '))
+
+p = re.compile('[a-z]+')
+m = p.search("5 python")
+print(m.start() + m.end())
+
+pat = re.compile("\d{3}[-]\d{4}[-]\d{4}")
+# 그루핑 하기
+pat2 = re.compile("(\d{3}[-]\d{4})[-]\d{4}")
+
+s = """
+    park 010-9999-9988
+    kim 010-9909-7789
+    lee 010-8789-7767
+"""
+
+result = pat.sub("\g<1>-####", s)
+
+print(result)
+
+# .com 과.net 해당되는 이메일 주소 매칭
+pat3 = re.compile(".*[@].*[.](?=com$|net$).*$")
+
+print(pat3.match("pahkey@gmail.com"))
+print(pat3.match("kim@daum.net"))
+print(pat3.match("lee@myhome.co.kr"))
+
+
+def chkDupNum(s):
+    result = []
+    for num in s:
+        if num not in result:
+            result.append(num)
+        else:
+            return False
+    return len(result) == 10
+
+
+print(chkDupNum("0123456789"))
+print(chkDupNum("1234"))
+print(chkDupNum("01234567890"))
+print(chkDupNum("6789012345"))
+print(chkDupNum("012322456789"))
